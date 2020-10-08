@@ -26,7 +26,7 @@ class MelonType(object):
 
     def update_code(self, new_code):
         """Replace the reporting code with the new_code."""
-
+        self.code = new_code
         # Fill in the rest
 
 
