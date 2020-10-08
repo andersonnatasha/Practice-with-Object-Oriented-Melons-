@@ -34,15 +34,26 @@ def make_melon_types():
     """Returns a list of current melon types."""
 
     all_melon_types = []
+    
     muskmelon = MelonType("musk", 1998, "green", True, True, "Muskmelon")
     casaba = MelonType("cas", 2003, "orange", False, False, "Casaba")
     yellow_watermelon = MelonType("yw", 2013, "yellow", False, True, "Yellow watermelon")
     yellow_watermelon.add_pairing("ice cream")
     muskmelon.add_pairing("mint")
     casaba.add_pairing("mint", "strawberries")
-    # Fill in the rest
+    
+    all_melon_types.append(muskmelon)
+    all_melon_types.append(casaba)
+    all_melon_types.append(yellow_watermelon)
 
     return all_melon_types
+
+
+# list.append(x)
+# Add an item to the end of the list. Equivalent to a[len(a):] = [x].
+
+# list.extend(iterable)
+# Extend the list by appending all the items from the iterable. Equivalent to a[len(a):] = iterable.
 
 def print_pairing_info(melon_types):
     """Prints information about each melon type's pairings."""
