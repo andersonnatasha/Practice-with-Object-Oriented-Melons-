@@ -71,14 +71,15 @@ def make_melon_type_lookup(melon_types):
 # Part 2   #
 ############
 
-class Melon(object):
+class Melon(MelonType):
     """A melon in a melon harvest."""
 
     #self.attribute = arrtibute 
 
-    def __init__(self, melon_type, shape_rating, color_rating, harvest_field, harvester):
-        
-        self.melon_type = melon_type
+    def __init__(self, code, first_harvest, color, is_seedless, is_bestseller, 
+                 name, shape_rating, color_rating, harvest_field, harvester):
+        super().__init__(code, first_harvest, color, is_seedless, is_bestseller, 
+                 name)
         self.shape_rating = shape_rating
         self.color_rating = color_rating
         self.harves_field = harvest_field
@@ -88,13 +89,14 @@ class Melon(object):
         return shape_rating > 5 and color_rating > 5 and harvest_field != 3 
 
 
-
-    # Fill in the rest
-    # Needs __init__ and is_sellable methods
-
 def make_melons(melon_types):
     """Returns a list of Melon objects."""
 
+
+# creaing empty list 
+# list of objets of class melon that 
+# has all of the attributes we defines above 
+#
     # Fill in the rest
 
 def get_sellability_report(melons):
