@@ -49,20 +49,19 @@ def make_melon_types():
     return all_melon_types
 
 
-# list.append(x)
-# Add an item to the end of the list. Equivalent to a[len(a):] = [x].
-
-# list.extend(iterable)
-# Extend the list by appending all the items from the iterable. Equivalent to a[len(a):] = iterable.
-
 def print_pairing_info(melon_types):
     """Prints information about each melon type's pairings."""
-
+    for melon_type in melon_types:
+        print(f"{melon_type.name} pairs with {melon_type.pairings}.")
     # Fill in the rest
 
 def make_melon_type_lookup(melon_types):
     """Takes a list of MelonTypes and returns a dictionary of melon type by code."""
-
+    melon_dict = {}
+    for melon_type in melon_types:
+        melon_dict[melon_type.code] = melon_type
+        
+        
     # Fill in the rest
 
 ############
