@@ -6,8 +6,8 @@
 class MelonType(object):
     """A species of melon at a melon farm."""
 
-    def __init__(self, code, first_harvest, color, is_seedless, is_bestseller, 
-                 name):
+    def __init__(self, name, code, first_harvest, color, is_seedless, 
+                is_bestseller):
         """Initialize a melon."""
         self.code = code
         self.first_harvest = first_harvest
@@ -17,17 +17,17 @@ class MelonType(object):
         self.name = name
         self.pairings = []
 
-        # Fill in the rest
-
+        
     def add_pairing(self, *pairing):
         """Add a food pairing to the instance's pairings list."""
-        self.pairings.append(pairing)
+        self.pairings.extend(pairing)
         # Fill in the rest
 
     def update_code(self, new_code):
         """Replace the reporting code with the new_code."""
+        
         self.code = new_code
-        # Fill in the rest
+       
 
 
 def make_melon_types():
@@ -35,12 +35,16 @@ def make_melon_types():
 
     all_melon_types = []
     
-    muskmelon = MelonType("musk", 1998, "green", True, True, "Muskmelon")
-    casaba = MelonType("cas", 2003, "orange", False, False, "Casaba")
-    yellow_watermelon = MelonType("yw", 2013, "yellow", False, True, "Yellow watermelon")
-    yellow_watermelon.add_pairing("ice cream")
+    muskmelon = MelonType("Muskmelon", "musk", 1998, "green",True, True,)
     muskmelon.add_pairing("mint")
+    
+    casaba = MelonType("Casaba", "cas", 2003, "orange", False, False)
     casaba.add_pairing("mint", "strawberries")
+    #casaba.add_pairing("strawberries")
+    
+    yellow_watermelon = MelonType("Yellow watermelon", "yw", 2013, "yellow", False, True)
+    yellow_watermelon.add_pairing("ice cream")
+
     
     all_melon_types.append(muskmelon)
     all_melon_types.append(casaba)
@@ -52,7 +56,11 @@ def make_melon_types():
 def print_pairing_info(melon_types):
     """Prints information about each melon type's pairings."""
     for melon_type in melon_types:
-        print(f"{melon_type.name} pairs with {melon_type.pairings}.")
+        print(f"{melon_type.name} pairs with") 
+        for pairing in melon_type.pairings:
+            print(f"- {pairing}")
+            print()
+
     # Fill in the rest
 
 def make_melon_type_lookup(melon_types):
@@ -76,8 +84,7 @@ class Melon(MelonType):
 
     #self.attribute = arrtibute 
 
-    def __init__(self, code, first_harvest, color, is_seedless, is_bestseller, 
-                 name, shape_rating, color_rating, harvest_field, harvester):
+    def __init__(self, shape_rating, color_rating, harvest_field, harvester):
         super().__init__(code, first_harvest, color, is_seedless, is_bestseller, 
                  name)
         self.shape_rating = shape_rating
